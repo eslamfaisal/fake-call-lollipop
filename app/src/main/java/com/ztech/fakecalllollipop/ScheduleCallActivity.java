@@ -21,8 +21,6 @@ import java.util.Calendar;
 
 public class ScheduleCallActivity extends AppCompatActivity implements SelectTimeFragment.IEventListener, SelectContactFragment.IEventListener {
 
-    private static final int PERMISSION_REQUEST = 1001;
-
     private static final int FILE_SELECT = 1002;
 
     private static final int HANA_UP_AFTER = 15;
@@ -105,6 +103,14 @@ public class ScheduleCallActivity extends AppCompatActivity implements SelectTim
             case R.id.settingsOption:
 
                 intent = new Intent(this, SettingsActivity.class);
+
+                startActivity(intent);
+
+                return true;
+
+            case R.id.smsOption:
+
+                intent = new Intent(this, ScheduleSMSActivity.class);
 
                 startActivity(intent);
 

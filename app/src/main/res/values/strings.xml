@@ -23,4 +23,6 @@
     <string name="private_number">Private</string>
     <string name="unknown">Unknown</string>
     <string name="missed_call">Missed Call</string>
+    <string name="sms">SMS</string>
+    <string name="message">Message...</string>
 </resources>

@@ -19,26 +19,26 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name="com.ztech.fakecalllollipop.FakeRingerActivity"
+                android:name=".FakeRingerActivity"
                 android:excludeFromRecents="true"
                 android:screenOrientation="portrait">
         </activity>
 
-        <receiver android:name="com.ztech.fakecalllollipop.LaunchAppViaDialReceiver">
+        <receiver android:name=".LaunchAppViaDialReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
 
         <activity
-                android:name="com.ztech.fakecalllollipop.ScheduleCallActivity"
+                android:name=".ScheduleCallActivity"
                 android:label="@string/app_name"/>
 
         <activity-alias
                 android:name=".Launcher"
                 android:excludeFromRecents="true"
                 android:screenOrientation="portrait"
-                android:targetActivity="com.ztech.fakecalllollipop.ScheduleCallActivity">
+                android:targetActivity=".ScheduleCallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -47,10 +47,12 @@
         </activity-alias>
 
         <activity
-                android:name="com.ztech.fakecalllollipop.SettingsActivity"
-                android:parentActivityName="com.ztech.fakecalllollipop.ScheduleCallActivity"
+                android:name=".SettingsActivity"
                 android:excludeFromRecents="true"
+                android:parentActivityName=".ScheduleCallActivity"
                 android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ScheduleSMSActivity">
         </activity>
     </application>
 
