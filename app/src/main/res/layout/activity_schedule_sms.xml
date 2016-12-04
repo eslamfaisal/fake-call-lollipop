@@ -14,8 +14,38 @@
             tools:layout="@layout/fragment_select_contact">
     </fragment>
 
+    <RadioGroup
+            android:id="@+id/messageType"
+            android:layout_below="@id/selectContactCallFragment"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/layout_margin"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content">
+        <RadioButton
+                android:checked="true"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:id="@id/incomingRadioButton"
+                android:layout_width="wrap_content"
+                android:text="@string/incoming"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/outgoingRadioButton"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:layout_width="wrap_content"
+                android:text="@string/outgoing"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/draftRadioButton"
+                android:layout_width="wrap_content"
+                android:text="@string/draft"
+                android:layout_height="wrap_content"/>
+    </RadioGroup>
+
     <fragment
-            android:layout_below="@+id/selectContactCallFragment"
+            android:layout_below="@+id/messageType"
             android:id="@+id/callScheduleTimePicker"
             android:layout_width="match_parent"
             tools:layout="@layout/fragment_select_time"
@@ -23,34 +53,17 @@
             android:layout_height="wrap_content">
     </fragment>
 
-    <RadioGroup
-            android:id="@+id/messageType"
-            android:layout_below="@id/callScheduleTimePicker"
-            android:layout_width="match_parent"
-            android:layout_margin="@dimen/layout_margin"
-            android:layout_height="wrap_content">
-        <RadioButton
-                android:id="@id/incomingRadioButton"
-                android:layout_width="wrap_content"
-                android:text="@string/incoming"
-                android:layout_height="wrap_content"/>
-        <RadioButton
-                android:id="@+id/outgoingRadioButton"
-                android:layout_width="wrap_content"
-                android:text="@string/outgoing"
-                android:layout_height="wrap_content"/>
-    </RadioGroup>
-
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
+            android:gravity="top"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:id="@+id/editText"
+            android:id="@+id/messageInput"
             android:hint="@string/message"
-            android:layout_below="@+id/messageType"
+            android:layout_below="@+id/callScheduleTimePicker"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_above="@+id/setSMSScheduleButton"/>

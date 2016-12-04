@@ -25,4 +25,5 @@
     <string name="missed_call">Missed Call</string>
     <string name="sms">SMS</string>
     <string name="message">Message...</string>
+    <string name="draft">Draft</string>
 </resources>

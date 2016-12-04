@@ -9,4 +9,5 @@
     <color name="incoming_call_widget_bitmap">#ffffffff</color>
     <color name="glowpad_outer_ring_color">#26ffffff</color>
     <color name="contact_photo_tint">#a3000000</color>
+    <color name="sms_icon">#00ACC1</color>
 </resources>

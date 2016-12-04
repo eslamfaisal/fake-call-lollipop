@@ -6,8 +6,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -451,7 +450,7 @@ public class FakeRingerActivity extends AppCompatActivity {
 
     }
 
-    // adds a missed ic_call to the log and shows a notification
+    // adds a missed call to the log and shows a notification
     private void missedCall() {
 
         NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(this);
