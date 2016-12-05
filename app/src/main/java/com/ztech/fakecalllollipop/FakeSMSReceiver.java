@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
 import android.net.Uri;
-import android.provider.CallLog;
 import android.support.v7.app.NotificationCompat;
 
 import java.io.InputStream;
@@ -32,6 +31,14 @@ public class FakeSMSReceiver extends BroadcastReceiver {
         String number = intent.getStringExtra("number");
 
         String message = intent.getStringExtra("message");
+
+        Intent showSMS = new Intent(Intent.ACTION_MAIN);
+
+        showSMS.addCategory(Intent.CATEGORY_DEFAULT);
+
+        showSMS.setType("vnd.android-dir/mms-sms");
+
+        PendingIntent showSMSIntent = PendingIntent.getActivity(context, 0, showSMS, PendingIntent.FLAG_CANCEL_CURRENT);
 
         if (contactImage != null && !contactImage.equals("")) {
 
@@ -72,19 +79,15 @@ public class FakeSMSReceiver extends BroadcastReceiver {
 
         nBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
 
-        Intent showSMS = new Intent(Intent.ACTION_VIEW);
-
-        showSMS.setType(CallLog.Calls.CONTENT_TYPE);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, showSMS, PendingIntent.FLAG_CANCEL_CURRENT);
-
         nBuilder.setColor(Color.rgb(0, 172, 193));
 
-        nBuilder.addAction(R.drawable.ic_reply, "Reply", pendingIntent);
+        nBuilder.addAction(R.drawable.ic_reply, "Reply", showSMSIntent);
 
-        nBuilder.addAction(R.drawable.ic_mark_read, "Read", pendingIntent);
+        nBuilder.addAction(R.drawable.ic_mark_read, "Read", showSMSIntent);
 
-        nBuilder.addAction(R.drawable.ic_call, "Call", pendingIntent);
+        nBuilder.addAction(R.drawable.ic_call, "Call", showSMSIntent);
+
+        nBuilder.setContentIntent(showSMSIntent);
 
         nm.notify(2001, nBuilder.build());
 
